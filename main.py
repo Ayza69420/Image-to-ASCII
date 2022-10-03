@@ -9,7 +9,7 @@ image_path = f"{directory}/{image_name}"
 img = cv2.imread(image_path)
 img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
-edges = cv2.Canny(img, 50, 200)
+edges = cv2.Canny(img, int(input("First threshold (default 50): ") or 50), int(input("Second threshold (default 200): ") or 200))
 
 new_image = f"{directory}/new_image.png"
 
