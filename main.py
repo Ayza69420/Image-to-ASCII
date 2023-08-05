@@ -3,11 +3,13 @@ import os
 
 directory, _ = os.path.split(__file__)
 
-image_name = "sample.png"
+image_name = input("Image name: ")
 image_path = f"{directory}/{image_name}"
 
 img = cv2.imread(image_path)
 img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+
+print("Approximate length:", img.shape[0]*img.shape[1], end="\n")
 
 edges = cv2.Canny(img, int(input("First threshold (default 100): ") or 100), int(input("Second threshold (default 200): ") or 200))
 
